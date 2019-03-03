@@ -1,5 +1,6 @@
 package com.example.aly.instagramclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,9 @@ public class SignUpLoginActivity extends AppCompatActivity
                             FancyToast.makeText(SignUpLoginActivity.this, appNewUser.get("username") +
                                             " has signed up successfully.", FancyToast.LENGTH_LONG,
                                     FancyToast.SUCCESS, true).show();
+
+                            Intent intent = new Intent(SignUpLoginActivity.this, Welcome.class);
+                            startActivity(intent);
                         }
                         else
                             {
@@ -73,6 +77,9 @@ public class SignUpLoginActivity extends AppCompatActivity
                             FancyToast.makeText(SignUpLoginActivity.this, user.get("username") +
                                             " has signed up successfully.", FancyToast.LENGTH_LONG,
                                     FancyToast.SUCCESS, true).show();
+
+                            Intent intent = new Intent(SignUpLoginActivity.this, Welcome.class);
+                            startActivity(intent);
                         }
                         else
                         {

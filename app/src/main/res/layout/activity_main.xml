@@ -102,32 +102,43 @@
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
         android:background="@android:color/holo_orange_light"
         android:padding="10dp"
         android:text="Save"
         android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtKickPower" />
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="404dp" />
 
     <Button
         android:id="@+id/btnRetrieveData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/holo_orange_light"
         android:padding="10dp"
         android:text="Retrive"
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
+
+    <Button
+        android:id="@+id/btnNextActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/holo_orange_light"
+        android:padding="10dp"
+        android:text="Next Activity"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toEndOf="@+id/btnRetrieveData"
         app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
     <TextView

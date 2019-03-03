@@ -21,10 +21,10 @@ import java.util.List;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener
 {
-    private Button btnSave, btnRetrieveData;
+    private Button btnSave, btnRetrieveData, btnTransition;
     private EditText edtName, edtPunchSpeed, edtPunchPower, edtKickSpeed, edtKickPower;
     private TextView txtGetData;
-    private String allKickBoxers, kickBoxerPunchSpeed, kickBoxerPunchPower;
+    private String allKickBoxers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener
 
         btnSave = findViewById(R.id.btnSave);
         btnRetrieveData = findViewById(R.id.btnRetrieveData);
+        btnTransition = findViewById(R.id.btnNextActivity);
+
         edtName = findViewById(R.id.edtName);
         edtPunchSpeed = findViewById(R.id.edtPunchSpeed);
         edtPunchPower = findViewById(R.id.edtPunchPower);
@@ -71,6 +73,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener
                 allKickBoxers = "";
 
                 ParseQuery<ParseObject> queryAll = ParseQuery.getQuery("kickBoxer");
+
+                //queryAll.whereGreaterThan("punchPower", 100);
+                queryAll.whereGreaterThanOrEqualTo("punchPower", 1000);
+                queryAll.setLimit(1);
+
                 queryAll.findInBackground(new FindCallback<ParseObject>()
                 {
                     @Override
@@ -83,12 +90,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener
                                 for(ParseObject kickBoxer : objects)
                                 {
                                     allKickBoxers = allKickBoxers + kickBoxer.get("name") + "\n";
-                                    kickBoxerPunchSpeed = kickBoxerPunchSpeed
-                                            + Integer.parseInt(kickBoxer.get("punchSpeed").toString());
-                                    kickBoxerPunchPower = kickBoxerPunchPower
-                                            + Integer.parseInt(kickBoxer.get("punchPower").toString());
-                                }
-                                FancyToast.makeText(SignUp.this, allKickBoxers + kickBoxerPunchSpeed + kickBoxerPunchPower,
+                                 }
+                                FancyToast.makeText(SignUp.this, allKickBoxers,
                                         FancyToast.LENGTH_LONG, FancyToast.SUCCESS,
                                         true).show();
                             }
@@ -112,7 +115,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener
                 });
             }
         });
+            btnTransition.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
 
+                }
+            });
     }
 
     @Override
